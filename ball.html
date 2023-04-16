@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ball</title>
+    <style>
+      #field {
+        width: 200px;
+        height: 150px;
+        position: relative;
+
+        border: 10px solid black;
+        background-color: #00ff00;
+        overflow: hidden;
+      }
+      #ball {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 1000ms all;
+      }
+    </style>
+  </head>
+  <body>
+    <p><a href="./index.html">Go back</a></p>
+    <div id="field">
+      <img src="https://ru.js.cx/clipart/ball.svg" id="ball" /> . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . .
+    </div>
+    <script src="./js/ball.js"></script>
+  </body>
+</html>
