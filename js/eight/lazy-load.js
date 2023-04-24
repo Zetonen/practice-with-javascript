@@ -13,3 +13,4 @@ refs.lazyImages.style.pointerEvents
 function omImageLoad(e) {
   e.target.classList.add("appear");
 }
+

@@ -1,0 +1,37 @@
+{
+  "name": "js-pactice",
+  "version": "1.0.0",
+  "description": "NPM basics",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app": "node src/app.js",
+    "preapp": "echo \" pre app\"",
+    "postapp": "echo \" post app\"",
+    "script-1": "echo \" script 1\"",
+    "script-2": "echo \" script 2\"",
+    "all": "npm run script-1 && npm run script-2",
+    "dev": "parcel <your entry file>",
+    "build": "parcel build <your entry file>"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zetonen/practice-with-javascript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zetonen/practice-with-javascript/issues"
+  },
+  "homepage": "https://github.com/Zetonen/practice-with-javascript#readme",
+  "dependencies": {
+    "joi": "^17.9.1",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "parcel-bundler": "^1.12.5"
+  }
+}
