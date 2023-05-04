@@ -1,33 +1,13 @@
-//  - вибір одного елементу
-//  - вибір декількох
-
 const refs = {
   tagsContainer: document.querySelector(".js-tags"),
 };
+const ACTIVE__BUTTONS__KEY = "active-buttons";
 
-// let selectorTag = null;
+const selectorTags = [];
 
-// refs.tagsContainer.addEventListener("click", onTagsContainerClick);
-
-// function onTagsContainerClick(e) {
-//   if (e.target.nodeName !== "BUTTON") {
-//     return;
-//   }
-//   const currentActiveBtn = document.querySelector(".tags_btn-active");
-//   //   if (currentActiveBtn) {
-//   //     currentActiveBtn.classList.remove("tags_btn-active");
-//   //   }
-
-//   currentActiveBtn?.classList.remove("tags_btn-active");// ?. перевірка на null?
-//   const nextActiveBtn = e.target;
-//   nextActiveBtn.classList.add("tags_btn-active");
-//   selectorTag = nextActiveBtn.dataset.value;
-
-//   console.log(selectorTag);
-// }
-
-const selectorTags = new Set();
+populateActiveBtn();
 refs.tagsContainer.addEventListener("click", onTagsContainerClick);
+
 function onTagsContainerClick(e) {
   if (e.target.nodeName !== "BUTTON") {
     return;
@@ -35,9 +15,26 @@ function onTagsContainerClick(e) {
   const btn = e.target;
   const isActive = btn.classList.contains("tags_btn-active");
   if (isActive) {
-    selectorTags.delete(btn.dataset.value);
+    const elemIndex = selectorTags.indexOf(btn.dataset.value);
+    selectorTags.splice(elemIndex, 1);
   } else {
-    selectorTags.add(btn.dataset.value);
+    selectorTags.push(btn.dataset.value);
   }
+  setLocalStorage(ACTIVE__BUTTONS__KEY, JSON.stringify(selectorTags));
   btn.classList.toggle("tags_btn-active");
+}
+
+function setLocalStorage(key, value) {
+  localStorage.setItem(key, value);
+}
+
+function populateActiveBtn() {
+  const saveActiveBtns = localStorage.getItem(ACTIVE__BUTTONS__KEY);
+  const activeBtns = JSON.parse(saveActiveBtns);
+
+  activeBtns.forEach((element) => {
+    const btnEl = document.querySelector(`[data-value="${element}"]`);
+    btnEl.classList.add("tags_btn-active");
+    selectorTags.push(element)
+  });
 }
